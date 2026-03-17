@@ -9,7 +9,8 @@ const Wishlist = require('../models/Wishlist');
 //get the whole collection of items
 exports.getAllItems = async (request, response) => {
     try {
-        const items = await Wishlist.find();
+        //const items = await Wishlist.find();
+        const items=[{"_id":"69ac73f72dd20613c77b6215","category":"Tech","name":"Dell 28in Monitor","qty":2,"price":{"$numberDecimal":"70.99"},"favorite":false},{"_id":"69ac751b2dd20613c77b6218","category":"Kitchen","name":"10 pack Rainbow Forks","qty":1,"price":{"$numberDecimal":"45.00"},"favorite":true},{"_id":"69ac76232dd20613c77b6219","category":"Bathroom","name":"Bath Towels","qty":3,"price":{"$numberDecimal":"25.00"},"favorite":true},{"_id":"69b1e69e381aea7442d886dc","category":"Living Room","name":"Test","qty":2,"price":{"$numberDecimal":"3.90"},"favorite":true,"__v":0}];
         response.status(200).json(items);
     }
     catch (errMsg) {
