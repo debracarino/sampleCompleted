@@ -19,6 +19,7 @@ const useFetch = (endpoint) => {
 
                 if(!response.ok) throw new Error("Network Error");
                 const result = await response.json();
+                console.log(result);
                 setData(result);
             }
             catch (error) {
