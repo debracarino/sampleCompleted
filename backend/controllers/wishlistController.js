@@ -9,8 +9,7 @@ const Wishlist = require('../models/Wishlist');
 //get the whole collection of items
 exports.getAllItems = async (request, response) => {
     try {
-        //const items = await Wishlist.find();
-        const items=[{"_id":"69ac73f72dd20613c77b6215","category":"Tech","name":"Dell 28in Monitor","qty":2,"price":{"$numberDecimal":"70.99"},"favorite":false}];
+        const items = await Wishlist.find();
         response.status(200).json(items);
     }
     catch (errMsg) {
