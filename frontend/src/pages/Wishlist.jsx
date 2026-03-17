@@ -13,8 +13,8 @@ const Wishlist = () => {
     const [viewFav, setViewFav] = useState(false);
     const [deletedItemData, setDeletedItemData] = useState({});
 
-    const {data, message, loading, error} = useFetch(import.meta.env.VITE_API_URL + "/wishlist");
-    console.log("source: " + import.meta.env.VITE_API_URL + "/wishlist")
+    const {data, message, loading, error} = useFetch(import.meta.env.VITE_API_URL + "wishlist");
+    console.log("source: " + import.meta.env.VITE_API_URL + "wishlist")
     console.log(data);
 
     const handleSubmit = (event) => {
