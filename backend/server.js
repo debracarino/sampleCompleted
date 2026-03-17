@@ -1,7 +1,6 @@
 /**
  * server.js
  * 
- * custom web server software
  * main file connecting datbase access and routers
  */
 
@@ -10,14 +9,14 @@ const app = express();
 const cors = require('cors');
 
 require("./config/db");
-const User = require('./models/User');
-const userRouter = require('./routes/userRouter');
+const Wishlist = require('./models/Wishlist');
+const wishlistRouter = require('./routes/wishlistRouter');
 
-const PORT = process.env.PORT || 3000;
-app.use(cors());
+const PORT = 3000;
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-app.use('/users', userRouter);
+app.use('/wishlist', wishlistRouter);
 
 
 app.get("/", (request, response) => {

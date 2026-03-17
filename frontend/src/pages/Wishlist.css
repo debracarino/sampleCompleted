@@ -1,0 +1,41 @@
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  padding: 20px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {background-color: lightslategray;}
+
+th {
+  text-align: center;
+  background-color: #520A02;
+  color: white;
+}
+
+td {
+  padding: 40px;
+}
+
+thead {
+  margin: 20em;
+}
+
+#btnSubmit:hover {
+  background-color: black;
+  color: white;
+}
+
+#btnSubmit {
+  border-radius: 5px;
+  padding: 16px 32px;
+  text-align: center;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: none;
+}
+

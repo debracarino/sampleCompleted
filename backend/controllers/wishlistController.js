@@ -1,0 +1,58 @@
+/**-----------------------------
+ * wishlistController.js 
+ * 
+ * define all the functions needed to interact with the books collection
+ * in our database 
+ * ----------------------------- */ 
+const Wishlist = require('../models/Wishlist');
+
+//get the whole collection of items
+exports.getAllItems = async (request, response) => {
+    try {
+        const items = await Wishlist.find();
+        response.status(200).json(items);
+    }
+    catch (errMsg) {
+        response.status(500).json({ error: "Server error - " + errMsg });
+    }
+}
+
+//add an item
+exports.addItem = async(request, response) => {
+    const {category, name, qty, price, favorite} = request.body;
+    try {
+        const result = await Wishlist.create({category, name, qty, price, favorite});
+        response.status(201).json({message: "success", itemAdded: result});
+    }
+    catch (errMsg) {
+        response.status(500).json({message: "failure", error: errMsg});
+    }
+}
+
+//delete item by id
+exports.deleteItem = async(request, response) => {
+    const theId = request.params.theItemId;
+    try {
+        const result = await Wishlist.findByIdAndDelete(theId);
+        response.status(200).json({message: "success", itemDeleted: result});
+    }
+    catch (errMsg) {
+        response.status(500).json({message: "failure", error: errMsg});
+    }
+}
+
+//edit a item by id
+exports.editItem = async(request, response) => {
+    const theId = request.params.theItemId;
+    const updatedItem = request.body;
+
+    try {
+        const result = await Wishlist.findByIdAndUpdate(theId, updatedItem,
+                                                    {new: true,       // return updated document
+                                                     runValidators: true});
+        response.status(200).json({message: "success", ItemUpdated: result});
+    }
+    catch (errMsg) {
+        response.status(500).json({message: "failure", error: errMsg});
+    }
+}

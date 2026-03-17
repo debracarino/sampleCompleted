@@ -1,0 +1,14 @@
+.mainUl {
+    list-style-type: none;
+    text-align: center;
+    justify-content: center;
+}
+
+main {
+  text-align: center;
+  justify-content: center;
+}
+
+h3 {
+    text-align: center;
+}
